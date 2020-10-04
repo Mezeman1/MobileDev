@@ -1,9 +1,13 @@
 package com.example.madlevel3task2
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class Portal(
     var title: String,
     var url: String,
-) {
+) : Parcelable {
     companion object {
         val PORTAL_TITLES = arrayOf(
             "Test 1",
