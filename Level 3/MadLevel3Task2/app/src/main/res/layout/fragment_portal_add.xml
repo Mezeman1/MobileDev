@@ -7,30 +7,45 @@
     tools:context=".PortalAddFragment">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </com.google.android.material.textfield.TextInputEditText>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            app:layout_constraintTop_toTopOf="parent">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/url"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnAddPortal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_portal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="150dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
