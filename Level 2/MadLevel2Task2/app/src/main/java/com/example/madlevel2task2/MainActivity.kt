@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val quizes = arrayListOf<Quiz>()
-    private val quizAdapter = QuizAdapter(quizes)
+    private val quizAdapter = QuizAdapter(quizes) { quiz: Quiz -> quizItemClicked(quiz) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initViews()
+    }
+
+    private fun quizItemClicked(quiz: Quiz) {
+        Snackbar.make(binding.rvQuestions, quiz.answer.toString().capitalize(), Snackbar.LENGTH_SHORT)
+            .show()
     }
 
     private fun initViews() {

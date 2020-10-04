@@ -7,16 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel2task2.databinding.ItemQuizBinding
 
-class QuizAdapter(val quizes: List<Quiz>) :
+class QuizAdapter(val quizes: List<Quiz>, val clickListener: (Quiz) -> Unit) :
     RecyclerView.Adapter<QuizAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemQuizBinding.bind(itemView)
 
         fun bind(
-            quiz: Quiz
+            quiz: Quiz,
+            clickListener: (Quiz) -> Unit
         ) {
             binding.tvQuiz.text = quiz.name
+            binding.tvQuiz.setOnClickListener { clickListener(quiz) }
         }
     }
 
@@ -27,7 +29,7 @@ class QuizAdapter(val quizes: List<Quiz>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(quizes[position])
+        holder.bind(quizes[position], clickListener)
     }
 
     override fun getItemCount(): Int {
