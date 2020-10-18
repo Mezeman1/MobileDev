@@ -16,7 +16,11 @@
     <string name="vs">V.S.</string>
     <string name="bot">Bot</string>
     <string name="you">You</string>
+    <string name="win">You win</string>
+    <string name="draw">It\'s a draw</string>
+    <string name="lose">You lose</string>
     <string name="computer">Computer</string>
     <string name="example_date">Example date</string>
     <string name="example_win_type">Example win type</string>
+    <string name="play_to_win">Play to win</string>
 </resources>
