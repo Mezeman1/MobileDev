@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class RPSGameFragment : Fragment() {
+class GameFragment : Fragment() {
 
     private lateinit var navController: NavController
 
@@ -22,7 +22,7 @@ class RPSGameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rps_game, container, false)
+        return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
