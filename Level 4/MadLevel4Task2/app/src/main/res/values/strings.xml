@@ -14,4 +14,9 @@
     <string name="instructions">Instructions: select rock, paper or scissors to play.</string>
     <string name="your_all_time_statistics">Your all time statistics</string>
     <string name="vs">V.S.</string>
+    <string name="bot">Bot</string>
+    <string name="you">You</string>
+    <string name="computer">Computer</string>
+    <string name="example_date">Example date</string>
+    <string name="example_win_type">Example win type</string>
 </resources>
