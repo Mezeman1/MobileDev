@@ -89,13 +89,13 @@ class GameFragment : Fragment() {
                 gameRepository.getDrawCount()
             }
 
+
             this@GameFragment.winCount = winCount
             this@GameFragment.drawCount = drawCount
             this@GameFragment.loseCount = loseCount
+            view.findViewById<TextView>(R.id.tv_stats).text =
+                "Win: $winCount Lose: $loseCount Draw: $drawCount"
         }
-
-        view.findViewById<TextView>(R.id.tv_stats).text =
-            "Win: $winCount Lose: $loseCount Draw: $drawCount"
     }
 
 
@@ -109,8 +109,6 @@ class GameFragment : Fragment() {
         var result = setResult(playerChoose, botChoose)
 
         setResultText(view, result)
-        setCounts(view)
-
         mainScope.launch {
             val game = Game(
                 timestamp = System.currentTimeMillis(),
@@ -120,8 +118,10 @@ class GameFragment : Fragment() {
             )
             withContext(Dispatchers.IO) {
                 gameRepository.insertGame(game)
+                setCounts(view)
             }
         }
+
     }
 
     private fun setResultText(view: View, result: Int) {
