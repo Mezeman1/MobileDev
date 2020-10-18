@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="wrap_content">
 
     <TextView
+        android:layout_margin="10dp"
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,13 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/example_date"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_result" />
 
     <TextView
+        android:layout_margin="10dp"
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_player" />
 
     <TextView
+        android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/computer"
