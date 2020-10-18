@@ -13,6 +13,7 @@
     <string name="welcome">Welcome</string>
     <string name="instructions">Instructions: select rock, paper or scissors to play.</string>
     <string name="your_all_time_statistics">Your all time statistics</string>
+    <string name="statistics">Win: %d Draw: %d Lose: %d</string>
     <string name="vs">V.S.</string>
     <string name="bot">Bot</string>
     <string name="you">You</string>

@@ -34,6 +34,10 @@ class GameFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var gameRepository: GameRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
+    private var winCount = 0
+    private var drawCount = 0
+    private var loseCount = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +59,7 @@ class GameFragment : Fragment() {
         }
 
         gameRepository = GameRepository(requireContext())
+        setCounts(view)
 
         view.findViewById<ImageView>(R.id.iv_rock).setOnClickListener {
             startGame(view, ROCK)
@@ -70,6 +75,29 @@ class GameFragment : Fragment() {
 
     }
 
+    private fun setCounts(view: View) {
+        mainScope.launch {
+            val winCount = withContext(Dispatchers.IO) {
+                gameRepository.getWinCount()
+            }
+
+            val loseCount = withContext(Dispatchers.IO) {
+                gameRepository.getLoseCount()
+            }
+
+            val drawCount = withContext(Dispatchers.IO) {
+                gameRepository.getDrawCount()
+            }
+
+            this@GameFragment.winCount = winCount
+            this@GameFragment.drawCount = drawCount
+            this@GameFragment.loseCount = loseCount
+        }
+
+        view.findViewById<TextView>(R.id.tv_stats).text =
+            "Win: $winCount Lose: $loseCount Draw: $drawCount"
+    }
+
 
     private fun startGame(view: View, playerChoose: Int) {
         val botChoose = Random.nextInt(0, 3)
@@ -81,6 +109,7 @@ class GameFragment : Fragment() {
         var result = setResult(playerChoose, botChoose)
 
         setResultText(view, result)
+        setCounts(view)
 
         mainScope.launch {
             val game = Game(
@@ -106,7 +135,7 @@ class GameFragment : Fragment() {
 
     }
 
-    private fun setResult(playerChoose: Int, botChoose: Int) : Int {
+    private fun setResult(playerChoose: Int, botChoose: Int): Int {
         return when {
             playerChoose == ROCK && botChoose == SCISSORS
                     || playerChoose == PAPER && botChoose == ROCK
