@@ -87,7 +87,7 @@ class GameFragment : Fragment() {
                 timestamp = System.currentTimeMillis(),
                 result = result,
                 computer = botChoose,
-                you = playerChoose,
+                player = playerChoose,
             )
             withContext(Dispatchers.IO) {
                 gameRepository.insertGame(game)
@@ -112,7 +112,7 @@ class GameFragment : Fragment() {
                     || playerChoose == PAPER && botChoose == ROCK
                     || playerChoose == SCISSORS && botChoose == PAPER
             -> WIN
-            playerChoose === botChoose -> DRAW
+            playerChoose == botChoose -> DRAW
             else -> LOSE
         }
     }

@@ -19,7 +19,7 @@ data class Game (
     @ColumnInfo(name = "computer")
     var computer: Int,
 
-    @ColumnInfo(name = "you")
-    var you: Int,
+    @ColumnInfo(name = "player")
+    var player: Int,
 )
 
